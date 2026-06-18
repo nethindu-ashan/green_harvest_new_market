@@ -2,13 +2,15 @@ require(
 "dotenv"
 ).config()
 
-const app=
+const app =
 require("./app")
 
-const connectDB=
-require("./config/db")
+const connectDB =
+require(
+"./config/db"
+)
 
-const start=
+const start =
 async()=>{
 
 try{
@@ -22,7 +24,8 @@ process.env.PORT,
 ()=>{
 
 console.log(
-`Server Running on ${process.env.PORT}`
+`Server Running:
+${process.env.PORT}`
 )
 
 }

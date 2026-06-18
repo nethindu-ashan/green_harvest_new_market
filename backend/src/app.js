@@ -1,13 +1,18 @@
-const express=
+const express =
 require("express")
 
-const cors=
+const cors =
 require("cors")
 
-const helmet=
+const helmet =
 require("helmet")
 
-const app=
+const userRoutes =
+require(
+"./modules/users/user.routes"
+)
+
+const app =
 express()
 
 app.use(
@@ -33,5 +38,10 @@ res.send(
 }
 )
 
-module.exports=
+app.use(
+"/api/users",
+userRoutes
+)
+
+module.exports =
 app
