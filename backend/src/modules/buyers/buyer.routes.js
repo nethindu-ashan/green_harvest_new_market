@@ -4,29 +4,45 @@ require("express")
 
 const controller =
 require(
-"./user.controller"
+"./buyer.controller"
 )
 
-const authMiddleware =
+const auth =
 require(
 "../../middleware/auth.middleware"
 )
 
-const allowRoles =
+const roles =
 require(
 "../../middleware/role.middleware"
 )
 
+router.post(
 
-// ADMIN ONLY
+"/",
+
+auth,
+
+roles(
+
+"BUYER"
+
+),
+
+controller.create
+
+)
+
 router.get(
 
 "/",
 
-authMiddleware,
+auth,
 
-allowRoles(
+roles(
+
 "ADMIN"
+
 ),
 
 controller.list

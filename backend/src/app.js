@@ -12,6 +12,24 @@ require(
 "./modules/users/user.routes"
 )
 
+const authRoutes =
+require("./modules/auth/auth.routes")
+
+const farmerRoutes =
+require(
+"./modules/farmers/farmer.routes"
+)
+
+const harvestRoutes =
+require(
+"./modules/harvest/harvest.routes"
+)
+
+const buyerRoutes =
+require(
+"./modules/buyers/buyer.routes"
+)
+
 const app =
 express()
 
@@ -41,6 +59,26 @@ res.send(
 app.use(
 "/api/users",
 userRoutes
+)
+
+app.use(
+"/api/auth",
+authRoutes
+)
+
+app.use(
+"/api/farmers",
+farmerRoutes
+)
+
+app.use(
+"/api/harvest",
+harvestRoutes
+)
+
+app.use(
+"/api/buyers",
+buyerRoutes
 )
 
 module.exports =
