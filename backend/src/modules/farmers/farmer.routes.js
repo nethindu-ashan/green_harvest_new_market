@@ -4,28 +4,40 @@ require("express")
 
 const controller =
 require(
-"./user.controller"
+"./farmer.controller"
 )
 
-const authMiddleware =
+const auth =
 require(
 "../../middleware/auth.middleware"
 )
 
-const allowRoles =
+const roles =
 require(
 "../../middleware/role.middleware"
 )
 
+router.post(
 
-// ADMIN ONLY
+"/",
+
+auth,
+
+roles(
+"FARMER"
+),
+
+controller.create
+
+)
+
 router.get(
 
 "/",
 
-authMiddleware,
+auth,
 
-allowRoles(
+roles(
 "ADMIN"
 ),
 
